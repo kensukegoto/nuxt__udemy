@@ -1,7 +1,14 @@
 <template>
   <div class="home-page">
     <section class="intro">
-      <h1>Get the latest tech news!?</h1>
+      <h1><span>Get the latest tech news!?</span></h1>
+    </section>
+    <section>
+      <div class="your-class">
+        <div>your content1</div>
+        <div>your content2</div>
+        <div>your content3</div>
+      </div>
     </section>
     <PostList :posts="loadedPosts" />
   </div>
@@ -9,7 +16,24 @@
 
 <script>
 import PostList from '@/components/Posts/PostList';
+
 export default {
+  head () {
+    return {
+      script: [
+        { 
+          src: 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js' 
+        },
+        {
+          src: '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js'
+        }
+      ],
+      link: [
+        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto&display=swap' },
+        { rel: 'stylesheet', href: '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css' }
+      ]
+    }
+  },
   components: {
     PostList
   },
@@ -17,11 +41,29 @@ export default {
     loadedPosts(){
       return this.$store.getters.loadedPosts
     }
+  },
+  mounted(){
+    
+    if(process.client){
+
+      const intro = document.querySelector(".intro");
+      // $("h1").css({color:"green"});
+      $(".your-class").slick();
+      const myFunc = () => {
+        const str = "後藤";
+        console.log(`${str}`);
+      }
+      myFunc();
+      console.log(intro);
+
+    };
+
+    
   }
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .intro {
   height: 300px;
   position: relative;
@@ -45,6 +87,9 @@ export default {
   box-shadow: 3px 3px 3px black;
   box-sizing: border-box;
   border: 1px solid black;
+  span{
+    color: blue;
+  }
 }
 
 @media (min-width: 768px) {
