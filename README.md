@@ -1,3 +1,47 @@
+(6/25)
+
+```
+# 各ディレクトリの意味
+
+## assets
+
+小さめ画像（webpackで取り込まれる）
+使い回したいscss
+
+## static
+
+大きめ画像
+jsonやmarkdown、またwebpackしたくない画像（？）
+
+## middleware
+
+plugins → middleware → fetch → asyncData
+
+大きな処理の流れの中で使う関数。ログインに失敗したら、再度ログインページにリダイレクトさせるなど。関数をエクスポート。
+
+ページロード、ミドルウェアを仕込んだページ移動時に呼ばれる。
+全ページに仕込んで特定のページのみ外す事も可能。
+
+## plugins
+
+全ページ共通パーツを使いやすくする、ページまたがり使う関数
+nuxt.config.jsのpluginsディレクティブで設定
+
+全ページでAppButtonコンポーネントが使える
+Vue.component("AppButton",AppButton);
+
+全ページでdataフィルターが使える
+Vue.filter("date",dataFilter);
+
+## api
+
+
+# nuxt.config.jsonの各設定
+
+## serverMiddleware
+
+```
+
 # 実用のためのタスク
 
 ```

@@ -4,7 +4,10 @@ const axios = require("axios");
 export default {
   srcDir: 'src/',
   router: {
-    base: '/news/special/nyanco/'
+    base: '/news/special/nyanco/',
+    middleware : [
+      'log'
+    ]
   },
   mode: 'universal',
   /*
@@ -20,6 +23,11 @@ export default {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Open+Sans&display=swap' }
+    ],
+    script: [
+      { 
+        src: 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js',
+      },
     ]
   },
   /*

@@ -21,11 +21,13 @@ export default {
   head () {
     return {
       script: [
-        { 
-          src: 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js' 
+        {
+            src: '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js',
+            body: true
         },
         {
-          src: '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js'
+          src: 'https://dev-www3.nhk.or.jp/news/special/goto/hello.js',
+          body: true 
         }
       ],
       link: [
